@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>
+     Tips display Page
+    </title>
+ </head>
+<body>
+
+<h2>Spandana Pandi shows tip amounts</h2>
+
+<label for="amount">Enter base amount:</label>
+  <input type="number" id="amount" value="50"><br>
+
+  <label for="percentageOfTip">Enter the tip percent:</label>
+  <input type="number" id="percentageOfTip" value="15"><br>
+
+  <input type="button" value="Show tip" onclick="tips()"><br>
+
+  <p id="tipResults">Tips are:</p>
+
+  <script>
+    function tips() {
+      const baseAmount = document.getElementById("amount").valueAsNumber;
+      const tipPercent = document.getElementById("percentageOfTip").valueAsNumber;
+      let toShow = "";
+
+      for (let i = 0; i < 5; i++) {
+        const calculatedTip = (baseAmount * (tipPercent + i * 4)) / 100;
+        toShow += `${tipPercent + i * 4}% is $${calculatedTip.toFixed(2)}; `;
+      }
+
+      document.getElementById("tipResults").innerHTML = "Tips are: " + toShow;
+    }
+  </script>
+<form>
+    <label>
+      <input type="radio" name="operation" value="sum" onClick="chooseOp()"> sum
+    </label><br>
+
+    <label>
+      <input type="radio" name="operation" value="difference" onClick="chooseOp()"> diff
+    </label><br>
+
+    <label>
+      <input type="radio" name="operation" value="product" onClick="chooseOp()"> mult
+    </label><br>
+
+    <label for="Amount">Enter base amount:</label>
+    <input type="number" id="Amount" value="5"><br>
+
+    <label for="tipAmount">Enter tip amount:</label>
+    <input type="number" id="tipAmount" value="10"><br>
+  </form>
+  <p id="result"></p>
+  <script>
+    function chooseOp() {
+      const baseAmount = document.getElementById("Amount").valueAsNumber;
+      const tipAmount = document.getElementById("tipAmount").valueAsNumber;
+      const operationElements = document.getElementsByName("operation");
+      let selectedOperation;
+      for (const element of operationElements) {
+        if (element.checked) {
+          selectedOperation = element.value;
+          break;
+        }
+      }
+      let resultText;
+       switch (selectedOperation) {
+        case "sum":
+          resultText = `Sum of ${baseAmount} and ${tipAmount} is ${baseAmount + tipAmount}.`;
+          break;
+        case "difference":
+          resultText = `Difference between ${baseAmount} and ${tipAmount} is ${baseAmount - tipAmount}.`;
+          break;
+        case "product":
+          resultText = `Product of ${baseAmount} and ${tipAmount} is ${baseAmount * tipAmount}.`;
+          break;
+        default:
+          resultText = "Please select an operation.";
+      }
+
+      document.getElementById("result").innerHTML = resultText;
+    }
+  </script>
+
+</body>
+</html> 
