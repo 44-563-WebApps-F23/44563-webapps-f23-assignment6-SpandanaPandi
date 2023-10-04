@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html>
- 
+ <head>
+    <Title>Checkbox Implemented page</Title>
+ </head>
 <body>
 
-<h2>Getting input</h2>
+<h2>Spandana goes on a cruise</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="sharesCabin">Shares Cabin</label>
+    <input type ="checkbox" id="sharesCabin" value="True"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="breakfast">Breakfast </label>
+    <input type ="checkbox" id="breakfast" value="True" > <br>
+    <label for="poolPass">Pool Pass </label>
+    <input type ="checkbox" id="poolPass"  value="False"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="selectCruise()" value="Select a cruise">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result"> </p>
+<script>
+let my_cruise = {};
 
-<script> 
+    function selectCruise() {
+      my_cruise = {
+        Cabinshares: document.getElementById("sharesCabin").checked,
+        breakfast: document.getElementById("breakfast").checked,
+        pool: document.getElementById("poolPass").checked,
+      };
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+      document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
     }
-}
-</script>
 
+</script>
+<form>
+    <label for="days">Enter the number of days:</label>
+    <input type="text" id="days" value="4"><br>
+
+    <label for="price">Enter price:</label>
+    <input type="text" id="price" value="1000"><br>
+
+    <input type="button" value="Update the cruise" onclick="updateCruise()"><br>
+  </form>
+
+  <script>
+    function updateCruise() {
+      const daysValue = document.getElementById("days").value;
+      const priceValue = document.getElementById("price").value;
+
+      my_cruise["days"] = daysValue;
+      my_cruise["price"] = priceValue;
+      document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
+    }
+      </script>
 </body>
 </html> 
