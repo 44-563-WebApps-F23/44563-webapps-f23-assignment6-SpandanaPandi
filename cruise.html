@@ -4,26 +4,19 @@
     <Title>Checkbox Implemented page</Title>
  </head>
 <body>
-
 <h2>Spandana goes on a cruise</h2>
-
 <form>
     <label for="sharesCabin">Shares Cabin</label>
     <input type ="checkbox" id="sharesCabin" value="True"> <br>
-
     <label for="breakfast">Breakfast </label>
     <input type ="checkbox" id="breakfast" value="True" > <br>
     <label for="poolPass">Pool Pass </label>
     <input type ="checkbox" id="poolPass"  value="False"> <br>
-
     <input type="button" onclick="selectCruise()" value="Select a cruise">
 </form>
-
-
 <p id="result"> </p>
 <script>
 let my_cruise = {};
-
     function selectCruise() {
       my_cruise = {
         Cabinshares: document.getElementById("sharesCabin").checked,
@@ -37,14 +30,11 @@ let my_cruise = {};
 </script>
 <form>
     <label for="days">Enter the number of days:</label>
-    <input type="text" id="days" value="4"><br>
-
+    <input type="text" id="days" ><br>
     <label for="price">Enter price:</label>
-    <input type="text" id="price" value="1000"><br>
-
+    <input type="text" id="price" ><br>
     <input type="button" value="Update the cruise" onclick="updateCruise()"><br>
   </form>
-
   <script>
     function updateCruise() {
       const daysValue = document.getElementById("days").value;
