@@ -49,16 +49,13 @@
     <label>
       <input type="radio" name="operation" value="product" onClick="chooseOp()"> mult
     </label><br>
-    <label for="Amount">Enter base amount:</label>
-    <input type="number" id="Amount" ><br><br>
-    <label for="tipAmount">Enter tip amount:</label>
-    <input type="number" id="tipAmount"><br><br>
+
   </form>
   <p id="result"></p>
   <script>
     function chooseOp() {
-      const baseAmount = document.getElementById("Amount").valueAsNumber;
-      const tipAmount = document.getElementById("tipAmount").valueAsNumber;
+      const baseAmount = document.getElementById("amount").valueAsNumber;
+      const tipAmount = document.getElementById("percentageOfTip").valueAsNumber;
       const operationElements = document.getElementsByName("operation");
       let selectedOperation;
       for (const element of operationElements) {
@@ -85,6 +82,14 @@
       document.getElementById("result").innerHTML = resultText;
     }
   </script>
+<h5>
+   Cruise Page: <a href="cruise.html">Cruise</a>
+</h5>
+<h5>
+  Author Page: <a href="author.html">Author</a>
+
+
+</h5>
 
 </body>
 </html> 

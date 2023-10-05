@@ -10,6 +10,7 @@
     <Title>Checkbox Implemented page</Title>
  </head>
 <body>
+  <div class="container-fluid">
 <h2>Spandana goes on a cruise</h2>
 <form>
     <label for="sharesCabin">Shares Cabin</label>
@@ -36,9 +37,9 @@ let my_cruise = {};
 </script>
 <form>
     <label for="days">Enter the number of days:</label>
-    <input type="text" id="days" ><br>
+    <input type="text" id="days" ><br><br>
     <label for="price">Enter price:</label>
-    <input type="text" id="price" ><br>
+    <input type="text" id="price" ><br><br>
     <input type="button"  class="btn btn-primary btn-danger"value="Update the cruise" onclick="updateCruise()"><br>
   </form>
   <script>
@@ -51,5 +52,13 @@ let my_cruise = {};
       document.getElementById("result").innerHTML = JSON.stringify(my_cruise);
     }
       </script>
+  <h6>
+     Tips Page: <a href="tips.html">Tips</a>
+  </h6>
+  <h6>
+    Author Page: <a href="author.html">Author</a>
+  
+  </h6>
+</div>
 </body>
 </html> 
